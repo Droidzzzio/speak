@@ -16,16 +16,17 @@ Usage:
 * <h3>git clone https://github.com/Droidzzzio/speak</h3>
 * <h3>pip install -r requirements.txt</h3>
 * <h3>cd speak.py</h3>
-* </h3>python speak.py</h3>
+* <h3>python speak.py</h3>
 
 <h1>Incase both python2 and python3 are installed</h1>
+
 * <h3>pip3 install -r requirements.txt</h3>
 * <h3>python3 speak.py</h3>
 
 
 I hope you find this tool valueable in your hacking machine
 
-I would love to have some suggestions and also if someone wants to help please DM me on twitter
+I would love to have some suggestions and also if someone wants to help please DM me on 
 [twitter](https://twitter.com/ShMalav)
 
 
