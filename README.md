@@ -29,4 +29,13 @@ I hope you find this tool valueable in your hacking machine
 I would love to have some suggestions and also if someone wants to help please DM me on 
 [twitter](https://twitter.com/ShMalav)
 
+* Personally tested on following domains
+* bugcrowd.com
+* google.com
+* yahoo.com
+* twitter.com
+* facebook.com
+* reddit.com
+* google.org
+* python.org
 
