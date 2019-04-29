@@ -8,8 +8,8 @@ very simple to use
 **Requires python3**
 
 Usage:
-say **open domain.com** to open any website you speak for
-say **exit** to exit the program if not in use.
+* say **open domain.com** to open any website you speak for
+* say **exit** to exit the program if not in use.
 
 <h1>Installation Guide</h1>
 
