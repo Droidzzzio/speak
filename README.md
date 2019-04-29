@@ -39,3 +39,5 @@ I would love to have some suggestions and also if someone wants to help please D
 * google.org
 * python.org
 
+* <h4>If any problem comes in installing gTTS module via requirements.txt please refer to google once, because most of time the reason for exception error will be due to system config </h4>
+
