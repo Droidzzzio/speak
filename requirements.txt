@@ -1,0 +1,4 @@
+gTTS
+SpeechRecognition
+DateTime
+pyfiglet
