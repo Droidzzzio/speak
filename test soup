@@ -1,0 +1,30 @@
+import requests
+from bs4 import BeautifulSoup as bs
+import pyperclip
+url = pyperclip.paste()
+print(pyperclip.paste())
+responce = requests.get(url)
+soup = bs(responce.content, 'html.parser')
+
+
+
+
+
+# base="https://www.youtube.com/results?search_query="
+# base = pyperclip.paste()
+# query="mickey+mouse"
+r = requests.get(pyperclip.paste())
+page = r.text
+soup = bs(page,'html.parser')
+
+vids = soup.findAll('a',attrs={'class':'style-scope ytd-rich-grid-renderer'})
+
+videolist=[]
+for v in vids:
+    tmp = 'https://www.youtube.com' + v['href']
+    videolist.append(tmp)
+
+
+    print(videolist)
+# style-scope ytd-compact-video-renderer "is Class"
+# style-scope ytd-rich-grid-renderer "main page class"

@@ -46,7 +46,7 @@ def greetTime():
         print('Good Afternoon master')
     else:
         print('Good Evening Boss')
-        
+
 
 #audio will be passed as arguement in this function
 def speak(audio):
@@ -160,7 +160,6 @@ def virtualAssist(storeCommand):
         else:
             pass
         
-################################################################## Chris Rvas code *end*
     elif 'exit' in storeCommand:
         exit()
 
