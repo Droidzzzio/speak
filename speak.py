@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 from gtts import gTTS
 import speech_recognition as sr
 import os
@@ -8,8 +7,28 @@ import re
 import webbrowser
 import datetime
 import pyfiglet
+import requests
+import keyboard
+from youtube_search import YoutubeSearch
+from bs4 import BeautifulSoup as bs
+import pyperclip
 
-print('#Usage\n#say"open site.com" to open any website.\n#say "exit" to exit the program.')
+global search_query
+search_query = 'test'
+
+print('#Usage\n#say"open youtube.com" to open youtube.\n#say "exit" to exit the program.')
+
+#fuction takes video selection and returns video URL
+def video_list(query,number):
+    
+    num = int(number)
+    num -=1
+    videos = []
+    results = YoutubeSearch(query, max_results=10).to_dict()
+    for i in results:
+        tmp = i['url_suffix']
+        videos.append(tmp)
+    return videos[num]
 
 def banner():
     ascii_banner = pyfiglet.figlet_format("SPEAK")
@@ -68,9 +87,81 @@ def virtualAssist(storeCommand):
         else:
             pass
 
+    elif 'search' in storeCommand: #types search query in youtube search bar
+        reg = re.search('search (.+)', storeCommand)
+        if reg:
+            keyboard.send("/")
+            keyboard.send('Command+a')
+            keyboard.send('delete')
+            keyboard.write(reg.group(1))
+            keyboard.send('enter')
+            global search_query
+            search_query = reg.group(1)
+        else:
+            pass
+
+    elif 'select option' in storeCommand:
+        reg = re.search('select option (.+)', storeCommand)
+        if reg:
+            video_choice = video_list(search_query,reg.group(1))
+            keyboard.send('Command+l') #url searchbar
+            keyboard.send('delete')
+            print(video_choice +'printed')
+            keyboard.write('https://www.youtube.com'+ video_choice) #writes url_suffix for selected video from search results
+            keyboard.send('enter')
+        else:
+            pass
+
+    elif 'play' in storeCommand:  #play or pause video
+        reg = re.search('play', storeCommand)
+        if reg:
+            keyboard.send("space")            
+        else:
+            pass
+        
+    elif 'speed up' in storeCommand: #speeds up video
+        reg = re.search('speed up', storeCommand)
+        if reg:
+            keyboard.send("Shift+>")            
+        else:
+            pass
+
+    elif 'slow down' in storeCommand: #slows down video
+        reg = re.search('slow down', storeCommand)
+        if reg:
+            keyboard.send("Shift+<")            
+        else:
+            pass
+
+    elif 'go forward' in storeCommand: #skips 10 seconds forward
+        reg = re.search('go forward', storeCommand)
+        if reg:
+            keyboard.send('l')
+        else:
+            pass
+
+    elif 'go back' in storeCommand: #skips 10 seconds backward
+        reg = re.search('go back', storeCommand)
+        if reg:
+            keyboard.send('j')
+        else:
+            pass
+
+    elif 'full screen' in storeCommand: #makes video full screen
+        reg = re.search('full screen', storeCommand)
+        if reg:
+            keyboard.send('f')
+        else:
+            pass
+    elif 'skip' in storeCommand: #skips ad
+        reg = re.search('skip', storeCommand)
+        if reg:
+            keyboard.send('Tab+Shift+Enter')
+        else:
+            pass
+        
     elif 'exit' in storeCommand:
         exit()
-        
 
 banner()
 greetTime()
